@@ -1,1 +1,1 @@
-web: gunicorn bookingsys.wsgi
+web: gunicorn eateasy.wsgi
