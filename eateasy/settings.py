@@ -124,6 +124,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+CLOUDINARY = {
+      'cloud_name': 'dcoqehbji',  
+      'api_key': '448937179916337',  
+      'api_secret': 'HUBK-bZl2XgQljlB_KDJWr7igvM',
+      'api_proxy': 'cloudinary://448937179916337:HUBK-bZl2XgQljlB_KDJWr7igvM@dcoqehbji'
+}
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
