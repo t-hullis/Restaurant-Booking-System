@@ -20,5 +20,5 @@ from bookingsys.views import say_hello, home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', say_hello, name='hello'),
-    path('', home, name="home")
+    path('', home, name="home"),
 ]
