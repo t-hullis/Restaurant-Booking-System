@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .forms import RegisterForm
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
@@ -8,7 +9,7 @@ from django.contrib.auth import login, logout, authenticate
 def say_hello(request):
     return HttpResponse("Hello!")
 
-
+@login_required(login_url="/login")
 def home(request):
     return render(request, 'bookingsys/home.html')
 
