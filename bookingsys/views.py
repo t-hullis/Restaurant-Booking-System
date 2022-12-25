@@ -8,6 +8,11 @@ from django.contrib.auth import login, logout, authenticate
 def home(request):
     return render(request, 'bookingsys/home.html')
 
+
+def bookings(request):
+    return render(request, 'bookingsys/bookings.html')
+
+
 @login_required(login_url="login")
 def make_booking(request):
     if request.method == 'POST':
