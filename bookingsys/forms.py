@@ -15,6 +15,10 @@ class RegisterForm(UserCreationForm):
 
 
 class BookingForm(forms.ModelForm):
+    date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d', attrs={'type': 'date'}))
+    # start_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M', attrs={'type': 'time'}))
+    # end_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M', attrs={'type': 'time'}))
+   
     class Meta:
         model = Booking
-        fields = ["restaurant", "date", "start_time", "end_time", "party_size", "extra_info"]
+        fields = ["restaurant", "date", "start_time",  "party_size", "extra_info"]
