@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from bookingsys.views import say_hello, home
+from bookingsys.views import home
 
 
 urlpatterns = [

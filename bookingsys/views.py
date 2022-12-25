@@ -1,17 +1,26 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .forms import RegisterForm
+from .forms import RegisterForm, BookingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 
 # Create your views here.
-
-
-def say_hello(request):
-    return HttpResponse("Hello!")
-
 @login_required(login_url="/login")
 def home(request):
     return render(request, 'bookingsys/home.html')
+
+@login_required(login_url="login")
+def make_booking(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.save()
+            return redirect("/home")
+    else:
+        form = BookingForm()
+
+    return render(request, 'bookingsys/make_booking.html', {"form": form})
 
 
 def sign_up(request):
@@ -25,6 +34,7 @@ def sign_up(request):
         form = RegisterForm()
 
     return render(request, 'registration/sign_up.html', {"form": form})
+
 
 def restaurants(request):
     return render(request, 'bookingsys/restaurants.html')
