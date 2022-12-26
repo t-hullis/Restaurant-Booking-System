@@ -5,11 +5,6 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 time_choices = (
-    ("07:00", "07:00"),
-    ("08:00", "08:00"),
-    ("09:00", "09:00"),
-    ("10:00", "10:00"),
-    ("11:00", "11:00"),
     ("12:00", "12:00"),
     ("13:00", "13:00"),
     ("14:00", "14:00"),
@@ -22,17 +17,26 @@ time_choices = (
     ("21:00", "21:00"),
 )
 
+
+table_size_choices = (
+    ("two_seater_window", "two_seater_window"),
+    ("two_seater_corner", "two_seater_corner"),
+    ("four_seater_window", "four_seater_window"),
+    ("four_seater_middle", "four_seater_middle"),
+    ("six_seater_corner", "six_seater_corner"),
+    ("six_seater_window6", "six_seater_window"),
+    ("six_seater_middle", "six_seater_middle"),
+)
+
+
 class Restaurant(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(blank=False)
     opening_time = models.TimeField()
     closing_time = models.TimeField()
-    two_seaters = models.PositiveIntegerField()
-    four_seaters = models.PositiveIntegerField()
-    six_seaters = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.name
+        return self.name + self.description
     
 
 class Booking(models.Model):
@@ -41,8 +45,8 @@ class Booking(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     date = models.DateField()
-    start_time = models.CharField(choices=time_choices, default='18:00', max_length=12)
-    party_size = models.PositiveIntegerField(validators=[MinValueValidator(0), MaxValueValidator(25)])
+    start_time = models.CharField(choices=time_choices, default='18:00', max_length=100)
+    party_size = models.CharField(choices=table_size_choices, max_length=100)
     extra_info = models.CharField(max_length=400)
 
     def __str__(self):

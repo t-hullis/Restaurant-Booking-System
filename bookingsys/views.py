@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from .forms import RegisterForm, BookingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
+from .models import Booking
 
 # Create your views here.
 @login_required(login_url="/login")
