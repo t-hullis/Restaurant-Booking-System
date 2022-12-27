@@ -19,6 +19,7 @@
         </div>
         <form method="POST">
           {% csrf_token %}
+          <a class="btn btn-info" href="{% url 'edit_booking' booking.id %}">Edit</a>
           <button type="submit" class="btn btn-danger" name="booking-id" value="{{booking.id}}">Delete</button>
         </form>
       </div>

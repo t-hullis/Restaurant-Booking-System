@@ -36,6 +36,21 @@ def make_booking(request):
     return render(request, 'bookingsys/make_booking.html', {"form": form})
 
 
+def edit_booking(request, pk):
+    booking = Booking.objects.get(id=pk)
+    form = BookingForm(instance=booking)
+    
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.save()
+            return redirect('/bookings')
+    context = {'form': form}
+    return render(request, 'bookingsys/make_booking.html', {"form": form})
+
+
 def sign_up(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
