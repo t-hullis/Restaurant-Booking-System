@@ -29,9 +29,12 @@ class BookingForm(forms.ModelForm):
         cleaned_start_time = self.cleaned_data["start_time"]
         cleaned_party_size = self.cleaned_data["party_size"]
         all_booking = Booking.objects.all()
+
         for single_booking in all_booking:
             if single_booking.date == cleaned_date and single_booking.start_time == cleaned_start_time and single_booking.restaurant == cleaned_restaurant and single_booking.party_size == cleaned_party_size:
-                raise forms.ValidationError("already booked")
+                raise forms.ValidationError("Already booked, please try a different time or date.")
+        
+        
 
     # def clean_party_size(self):
     #     cleaned_party_size = self.cleaned_data["party_size"]

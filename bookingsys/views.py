@@ -11,7 +11,10 @@ def home(request):
 
 
 def bookings(request):
-    return render(request, 'bookingsys/bookings.html')
+    user = request.user
+    bookings = Booking.objects.filter(user=user)
+
+    return render(request, 'bookingsys/bookings.html', {"bookings": bookings})
 
 
 @login_required(login_url="login")
@@ -22,7 +25,7 @@ def make_booking(request):
             booking = form.save(commit=False)
             booking.user = request.user
             booking.save()
-            return redirect("/home")
+            return redirect('/bookings')
     else:
         form = BookingForm()
 
