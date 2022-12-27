@@ -13,6 +13,10 @@ def home(request):
 def bookings(request):
     user = request.user
     bookings = Booking.objects.filter(user=user)
+    if request.method == "POST":
+        booking_id = request.POST.get("booking-id")
+        booking = Booking.objects.filter(id=booking_id)
+        booking.delete()
 
     return render(request, 'bookingsys/bookings.html', {"bookings": bookings})
 
