@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from .forms import RegisterForm, BookingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
-from .models import Booking
+from .models import Booking, Restaurant
 
 # Create your views here.
 @login_required(login_url="/login")
@@ -39,7 +39,7 @@ def make_booking(request):
 def edit_booking(request, pk):
     booking = Booking.objects.get(id=pk)
     form = BookingForm(instance=booking)
-    
+
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
@@ -65,6 +65,7 @@ def sign_up(request):
 
 
 def restaurants(request):
-    return render(request, 'bookingsys/restaurants.html')
+    restaurants = Restaurant.objects.all()
+    return render(request, 'bookingsys/restaurants.html', {"restaurants": restaurants})
 
         

@@ -5,15 +5,20 @@
 
 <div class="container text-center">
     <div class="row">
-      <div class="col">
-        Column
-      </div>
-      <div class="col">
-        Column
-      </div>
-      <div class="col">
-        Column
-      </div>
+      {% for restaurant in restaurants %}
+      <div class="card mt-2 " style="width: 18rem;">
+        <h2 class="card-header"><strong>{{ restaurant.name }}</strong></h2>
+        <div class="card-body d-flex flex-row justify-content-between">
+          <div>
+            <h4 class="card-title"> {{ restaurant.description}}</h4>
+            <h4 class="card-title"> {{ restaurant.opening_time}}</h4>
+            <h5 class="card-title"> {{ restaurant.closing_time}}</h5>
+
+          </div>
+        </div>
+      
+      {% endfor %}
+      
     </div>
   </div>
 {%endblock%}
