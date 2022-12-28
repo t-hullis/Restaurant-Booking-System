@@ -1,24 +1,28 @@
 {% extends "bookingsys/base.html" %}
 
 {% block content %}
-<h1>Our Restaurants</h1>
-
+<div class="text-center">
+<h1 class="text-center">Our Restaurants</h1>
+<a href="/make-booking">Make a booking here!</a>
+</div>
 <div class="container text-center">
-    <div class="row">
+  <h2>The choises</h2>
+    <div class="row justify-content-between justify-content-around text-center">
       {% for restaurant in restaurants %}
-      <div class="card mt-2 " style="width: 18rem;">
-        <h2 class="card-header"><strong>{{ restaurant.name }}</strong></h2>
+      <div class="card mt-2 " style="width: 25vw; overflow: hidden;">
+        <h2 class="card-header" style="font-size: 3vw;"><strong>{{ restaurant.name }}</strong></h2>
         <div class="card-body d-flex flex-row justify-content-between">
           <div>
-            <h4 class="card-title"> {{ restaurant.description}}</h4>
-            <h4 class="card-title"> {{ restaurant.opening_time}}</h4>
-            <h5 class="card-title"> {{ restaurant.closing_time}}</h5>
+            <h4 class="card-title" style="font-size: 2vw;"> {{ restaurant.description}}</h4>
+            <h4 class="card-title" style="font-size: 2vw;"> {{restaurant.opening_time }}</h4>
+            <h5 class="card-title" style="font-size: 2vw;"> {{restaurant.closing_time }}</h5>
 
           </div>
         </div>
-      
+      </div>
+
       {% endfor %}
       
+      </div>
     </div>
-  </div>
 {%endblock%}

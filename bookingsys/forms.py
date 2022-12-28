@@ -16,9 +16,7 @@ class RegisterForm(UserCreationForm):
 
 class BookingForm(forms.ModelForm):
     date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d', attrs={'type': 'date'}))
-    # start_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M', attrs={'type': 'time'}))
-    # end_time = forms.TimeField(widget=forms.TimeInput(format='%H:%M', attrs={'type': 'time'}))
-   
+    
     class Meta:
         model = Booking
         fields = ["restaurant", "date", "start_time",  "party_size", "extra_info"]
@@ -33,14 +31,7 @@ class BookingForm(forms.ModelForm):
         for single_booking in all_booking:
             if single_booking.date == cleaned_date and single_booking.start_time == cleaned_start_time and single_booking.restaurant == cleaned_restaurant and single_booking.party_size == cleaned_party_size:
                 raise forms.ValidationError("Already booked, please try a different time or date.")
-        
-        
-
-    # def clean_party_size(self):
-    #     cleaned_party_size = self.cleaned_data["party_size"]
-    #     all_booking = Booking.objects.all()
-    #     for single_booking in all_booking:
-    #         if single_booking.party_size 
+            # if single_booking.start_time < 
 
 
 
