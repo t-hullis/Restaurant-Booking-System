@@ -5,7 +5,7 @@ from .models import Booking, Restaurant
 
 
 class RegisterForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    email = forms.EmailField(required=True, help_text="someone@example.com")
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
 
@@ -15,7 +15,7 @@ class RegisterForm(UserCreationForm):
 
 
 class BookingForm(forms.ModelForm):
-    date = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d', attrs={'type': 'date'}))
+    date = forms.DateField(help_text="YYYY-MM-DD",widget=forms.DateInput(format='%Y-%m-%d', attrs={'type': 'date'}))
     
     class Meta:
         model = Booking
