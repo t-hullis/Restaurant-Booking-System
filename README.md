@@ -1,108 +1,65 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Restaurant Booking System
 
-Welcome t-hullis,
+Bookingsys is a python django web app for making resservations at restaurants.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![this is an image to show resposiveness](static/images/computerscrren.png)
+![this is an image to show resposiveness](static/images/ipadscreen.png)
+![this is an image to show resposiveness](static/images/iphonescreen.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Abstract
+This project was designed to streamline the booking procces for a chain of restaurants. All a users bookings can be seen in one place, with the capablity to create read, edit and delete all the bookings. A user can only CRUD thier own bookings with no way of seeing other users bookings. The idea was to create a deliveroo style app but instead of making food orders, you simply can book seats.
 
-## Gitpod Reminders
+# UX
+## User
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- Home page : The front end of this website is very simple. The user is met by the home page which tells them the purpose of the page direts them to the bookings page. The nav bar allows you to got to the restaurant page and bookings page. It also has a button in the top right corner, which depending on the login status of the user, will change from login to logout. Next to the button is one text which diplays the login status of the current user
+- Restaurant page : The user is met by cards diplaying the current restaurants opperation on the app. Link to Bookings page can be found. The cards diplay the name of the restaurant, a desription, as well was their opening times and closing times.
+- Bookings page :  This page has a similar set up to to the bookings page but it has the added functionality of the user being able to update and delete bookings which belong to them.
+- forms : for the forms i have used the cripsy forms library. this streamlined the form making prcess and added in error handling. 
 
-`python3 -m http.server`
+## Admin
 
-A blue button should appear to click: _Make Public_,
+- In admin, the superuser (restaurant owner/manager) can add new retaurants to the database specifying restaurant details.
 
-Another blue button should appear to click: _Open Browser_.
+## Autherisation
+In order to access your bookings, text decorators have been used, so you have to be logged in. This can be seen in views.py. The booking view stops other users from being able to see your bookings by onoly showing the booking with the same user id as current user.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Databases
+![this is an image of the models code](static/images/databaseimage.png)
 
-A blue button should appear to click: _Make Public_,
+All my databases have been created using django and postgres. 
 
-Another blue button should appear to click: _Open Browser_.
+- Restaurants : This is a model for the data of the restaurants. it holds opening times, closing times as well as a description and the name. This data can be diplayed.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- Bookings : Specifies booking start time, party size and extra info. It also has two forign keys which link it to the user model as well as Restruant models, so the bookings can be specifed to an exact restaurant.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+# Testing
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- testing has been done to make sure invalid forms are rejected, all tests pass
 
-------
+- testing has been done to make sure correct form secontions are running in form
 
-## Release History
+# Deployment
+## Technologies Used
+ 
+This project has been deoplyed on heroku.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- [Django](https://www.djangoproject.com/)
+    -  Framework used to build the project.
+- [Python](https://www.python.org/)
+- [Bootstrap](https://getbootstrap.com/)
+    - Makes mobile first responsive design.
+- [GitHub](https://github.com/)
+    - Holds and stores project.
+- [Gitpod](https://www.gitpod.io/)
+    - Development environment.
+- [Heroku](https://dashboard.heroku.com/apps)
+    - App deployed here.
+- Crispy forms
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+# Bugs
+- The form to update a booking wouldnt pre load exsiting data into it. this was solved by adding an edit view into views.py and taking instance data.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- 
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
