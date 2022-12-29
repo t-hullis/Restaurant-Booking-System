@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
-from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 time_choices = (
@@ -24,7 +23,7 @@ table_size_choices = (
     ("four_seater_window", "four_seater_window"),
     ("four_seater_middle", "four_seater_middle"),
     ("six_seater_corner", "six_seater_corner"),
-    ("six_seater_window6", "six_seater_window"),
+    ("six_seater_window", "six_seater_window"),
     ("six_seater_middle", "six_seater_middle"),
 )
 
@@ -36,7 +35,7 @@ class Restaurant(models.Model):
     closing_time = models.TimeField()
 
     def __str__(self):
-        return self.name + self.description
+        return self.name 
     
 
 class Booking(models.Model):

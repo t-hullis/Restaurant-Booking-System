@@ -4,12 +4,13 @@
 <div class="text-center">
 <h1>Need a table?</h1>
 <a href="/make-booking">Book here!</a>
+
 </div>
-<div class="container text-center">
+<div class="container text-center" style="height: 70vh; background-color: gray;">
   <h2>Your Bookings</h2>
     <div class="row justify-content-between justify-content-around text-center">
       {% for booking in bookings %}
-      <div class="card mt-2" style="width: 20vw; overflow:hidden">
+      <div class="card mt-2" style="width: 20vw; overflow:hidden; padding:2vw;">
         <h2 class="card-header" style="font-size: 3vw;"><strong>{{ booking.restaurant.name }}</strong></h2>
         <div class="card-body d-flex flex-row justify-content-between">
           <div>
