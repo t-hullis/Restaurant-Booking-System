@@ -4,12 +4,14 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from .models import Booking, Restaurant
 
+
 # Create your views here.
 @login_required(login_url="/login")
 def home(request):
     return render(request, 'bookingsys/home.html')
 
 
+@login_required(login_url="/login")
 def bookings(request):
     user = request.user
     bookings = Booking.objects.filter(user=user)
