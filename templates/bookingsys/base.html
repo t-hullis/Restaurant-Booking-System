@@ -33,14 +33,19 @@
               <li class="nav-item">
                 <a class="nav-link" href="/bookings">Bookings</a>
               </li>
+              {% if user.is_superuser %}
+              <li class="nav-item">
+                <a class="nav-link text-success" href="/add-restaurant">Add New Restaurant</a>
+              </li>
+              {% endif %}
           </div>
           <div class="d-flex flex-row">
               <li class="nav-item collapse navbar-collapse"></li>
               {% if user.is_authenticated %}
               <span class="navbar-text">Logged in as {{user.username}} &nbsp;</span> 
-              <a class="btn btn-outline-dark nav-link" style="margin: auto;" href="/logout">Logout</a>
+              <a class="btn btn-outline-dark nav-link" style="margin: auto;" href="/logout/">Logout</a>
               {% else %}
-              <a class="btn btn-outline-dark nav-link" style="margin: auto;">Login</a>
+              <a class="btn btn-outline-dark nav-link" style="margin: auto;" href="{%url 'login' %}">Login</a>
               {% endif %}                
             </ul>
           </div>

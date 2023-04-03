@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 
 # Create your views here.
-@login_required(login_url="/login")
+# @login_required(login_url="/login")
 def home(request):
     return render(request, 'bookingsys/home.html')
 
@@ -84,7 +84,7 @@ def sign_up(request):
     else:
         form = RegisterForm()
 
-    return render(request, 'registration/sign_up.html', {"form": form})
+    return render(request, 'account/sign_up.html', {"form": form})
 
 
 def restaurants(request):
