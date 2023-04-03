@@ -84,7 +84,7 @@ def sign_up(request):
     else:
         form = RegisterForm()
 
-    return render(request, 'account/sign_up.html', {"form": form})
+    return render(request, 'registration/sign_up.html', {"form": form})
 
 
 def restaurants(request):
