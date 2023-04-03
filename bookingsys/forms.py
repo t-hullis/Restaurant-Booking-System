@@ -34,5 +34,14 @@ class BookingForm(forms.ModelForm):
             # if single_booking.start_time < 
 
 
-
+class RestaurantForm(forms.ModelForm): 
+    
+    class Meta:
+        model = Restaurant
+        fields = ["name", "description", "opening_time",  "closing_time"]
+    
+    name = forms.CharField(max_length=100)
+    description = forms.CharField()
+    opening_time = forms.TimeField()
+    closing_time = forms.TimeField()
 

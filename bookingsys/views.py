@@ -1,9 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .forms import RegisterForm, BookingForm
-from django.contrib.auth.decorators import login_required
+from .forms import RegisterForm, BookingForm, RestaurantForm
+from django.contrib.auth.decorators import login_required, login_required, user_passes_test
 from django.contrib.auth import login, logout, authenticate
 from .models import Booking, Restaurant
 from django.contrib.auth.models import User
+
 
 # Create your views here.
 @login_required(login_url="/login")
@@ -36,6 +37,22 @@ def make_booking(request):
         form = BookingForm()
 
     return render(request, 'bookingsys/make_booking.html', {"form": form})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+@login_required(login_url="login")
+def add_restaurant(request):
+    if request.method == 'POST':
+        form = RestaurantForm(request.POST)
+        if form.is_valid():
+            restaurant = form.save(commit=False)
+            restaurant.user = request.user
+            restaurant.save()
+            return redirect('/bookings')
+    else:
+        form = RestaurantForm()
+
+    return render(request, 'bookingsys/add_restaurant.html', {"form": form})
 
 
 def edit_booking(request, pk):
