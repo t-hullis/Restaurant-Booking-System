@@ -3,7 +3,7 @@ from .forms import RegisterForm, BookingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from .models import Booking, Restaurant
-
+from django.contrib.auth.models import User
 
 # Create your views here.
 @login_required(login_url="/login")
@@ -42,15 +42,19 @@ def edit_booking(request, pk):
     booking = Booking.objects.get(id=pk)
     form = BookingForm(instance=booking)
 
-    if request.method == 'POST':
-        form = BookingForm(request.POST, instance=booking)
-        if form.is_valid():
-            booking = form.save(commit=False)
-            booking.user = request.user
-            booking.save()
-            return redirect('/bookings')
-    context = {'form': form}
-    return render(request, 'bookingsys/make_booking.html', {"form": form})
+    if booking.user.is_authenticated and booking.user == request.user:
+
+        if request.method == 'POST':
+            form = BookingForm(request.POST, instance=booking)
+            if form.is_valid():
+                booking = form.save(commit=False)
+                booking.user = request.user
+                booking.save()
+                return redirect('/bookings')
+        context = {'form': form}
+        return render(request, 'bookingsys/make_booking.html', {"form": form})
+    else:
+        return render(request, 'bookingsys/404.html')
 
 
 def sign_up(request):
@@ -69,5 +73,4 @@ def sign_up(request):
 def restaurants(request):
     restaurants = Restaurant.objects.all()
     return render(request, 'bookingsys/restaurants.html', {"restaurants": restaurants})
-
         
