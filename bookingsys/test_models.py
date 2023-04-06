@@ -23,3 +23,6 @@ class BookingsModelTest(TestCase):
         user = User.objects.get(id=1)
         field_label = user.username
         self.assertEqual(field_label, "toby")
+
+
+
