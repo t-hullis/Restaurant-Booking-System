@@ -16,6 +16,7 @@ class RegisterForm(UserCreationForm):
 
 class BookingForm(forms.ModelForm):
     date = forms.DateField(help_text="YYYY-MM-DD",widget=forms.DateInput(format='%Y-%m-%d', attrs={'type': 'date'}))
+    extra_info = forms.CharField(required=False)
     
     class Meta:
         model = Booking

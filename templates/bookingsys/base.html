@@ -38,10 +38,10 @@
           <div class="d-flex flex-row">
               <li class="nav-item collapse navbar-collapse"></li>
               {% if user.is_authenticated %}
-              <span class="navbar-text">Logged in as {{user.username}} &nbsp;</span> 
-              <a class="btn btn-outline-dark nav-link" style="margin: auto;" href="/logout/">Logout</a>
+              <span class="navbar-text" id="disp-usr">Logged in as {{user.username}} </span> 
+              <a class="btn" id="lgn-btn"  href="/logout/">Logout</a>
               {% else %}
-              <a class="btn btn-outline-dark nav-link" style="margin: auto;" href="{%url 'login' %}">Login</a>
+              <a class="btn" id="lgn-btn"  href="{%url 'login' %}">Login</a>
               {% endif %}                
             </ul>
           </div>

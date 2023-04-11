@@ -1,5 +1,5 @@
 :root {
-    --font-size: 1.75vw;
+    --font-size: 14px;
   }
 /* Background image */
 #background-home {
@@ -13,9 +13,26 @@
     margin: auto;
     }
 /* Cards for bookings and restaurants */
-.card { 
+.cards { 
     font-size: var(--font-size);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+#card {
+  width:25vw ;
+}
+  
+  /* .card-body {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    font-size: calc(12px + 1vw);
+  } */
 
 .card-header {
     font-size: var(--font-size);
@@ -26,3 +43,29 @@
 .card-title {
     font-size: var(--font-size);
 }
+/* Media query for screens smaller than 768px */
+@media (max-width: 767px) {
+    #card {
+      font-size: 14px;
+      width: 55vw ;
+    }
+  }
+  
+  /* Media query for screens smaller than 480px */
+  @media (max-width: 479px) {
+    #card {
+      font-size: 12px;
+      width: 55vw ;
+    }
+  }
+
+#lgn-btn {
+    width: 150px;
+}
+
+#disp-usr {
+    color: rgba(255, 255, 255, 0.3);
+
+}
+
+@
