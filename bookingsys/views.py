@@ -23,7 +23,6 @@ def bookings(request):
 
     return render(request, 'bookingsys/bookings.html', {"bookings": bookings})
 
-
 @login_required(login_url="login")
 def make_booking(request):
     if request.method == 'POST':
@@ -69,7 +68,25 @@ def edit_booking(request, pk):
                 booking.save()
                 return redirect('/bookings')
         context = {'form': form}
-        return render(request, 'bookingsys/make_booking.html', {"form": form})
+        return render(request, 'bookingsys/edit_booking.html', {"form": form})
+    else:
+        return render(request, 'bookingsys/404.html')
+
+
+def edit_restaurant(request, pk):
+    restaurant = Restaurant.objects.get(id=pk)
+    form = RestaurantForm(instance=restaurant)
+
+    if request.user.is_superuser:
+        if request.method == 'POST':
+            form = RestaurantForm(request.POST, instance=restaurant)
+            if form.is_valid():
+                restaurant = form.save(commit=False)
+                restaurant.user = request.user
+                restaurant.save()
+                return redirect('/bookings')
+        context = {'form': form}
+        return render(request, 'bookingsys/edit_restaurant.html', {"form": form})
     else:
         return render(request, 'bookingsys/404.html')
 
