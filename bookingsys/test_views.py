@@ -42,7 +42,7 @@ class TestViews(TestCase):
         url = reverse('edit_booking', args=[self.booking.id])
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'bookingsys/make_booking.html')
+        self.assertTemplateUsed(response, 'bookingsys/edit_booking.html')
 
     def test_sign_up_view(self):
         url = reverse('sign_up')

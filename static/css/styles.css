@@ -48,10 +48,12 @@
       font-size: 12px;
       width: 55vw ;
     }
+
   }
 
 #lgn-btn {
-    width: 150px;
+    width: 30px;
+    margin-right: 30px;
 }
 
 #disp-usr {
@@ -59,4 +61,4 @@
 
 }
 
-@
+
