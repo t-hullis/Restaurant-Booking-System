@@ -8,7 +8,7 @@ Bookingsys is a python django web app for making resservations at restaurants.
 
 ## Abstract
 This project was designed to streamline the booking procces for a chain of restaurants. All a users bookings can be seen in one place, with the capablity to create, read, edit and delete all the bookings. A user can only CRUD thier own bookings with no way of seeing other users bookings. The idea was to create a deliveroo style app but instead of making food orders, you simply can book seats.
-ß
+
 ## User Stories
 
 **User Story [#3](https://github.com/t-hullis/Restaurant-Booking-System/issues/3):** 
@@ -31,28 +31,41 @@ As a customer, I can add a booking for a meal in a specific restaurant at a spec
 
 
 # UX
+
 ## User
 - Nav Bar : The nav bar spans all of the pages of this website and allows you to got to the restaurant page and bookings page easily. It also has a button on right, which depending on the login status of the user, will change from login to logout.
 ![homepage](static/images/readmemd/homepage.png)
 
 - Home page : The front end of this website is very simple. The text is ment to grab the users atention then move them straight through to the booking page with minimal distraction.  
 ![homepage](static/images/readmemd/homepage.png)
+- Design : 
+![homepage](static/images/readmemd/designhome.png)
 
 - Restaurant page : The user is met by cards diplaying the current restaurants you are able to book on the app. Links to Bookings page can be found. The cards diplay the name of the restaurant, a desription, as well was their opening times and closing times.
 ![restaurant](static/images/readmemd/restaurantpage.png)
+- Design : 
+![restaurant](static/images/readmemd/designrestaurants.png)
 
 - Bookings page :  This page has a similar set up to to the restaurants page but it has the added functionality of the user being able to update/edit and delete bookings which belong to them.
 ![booking](static/images/readmemd/bookingpage.png)
+- Design :
+![homepage](static/images/readmemd/designbooking.png)
 
 - Forms : For the forms i have used the cripsy forms library. This streamlined the form making process and added in error handling. 
 ![forms](static/images/readmemd/createaccountform.png)
 ![forms](static/images/readmemd/loginform.png)
 ![forms](static/images/readmemd/editbookingform.png)
+- Design :
+![homepage](static/images/readmemd/designlogin.png)
 
 ## Admin
 
-- In admin, the superuser (restaurant owner/manager) can add new retaurants to the database specifying restaurant details. There has also been a link added to the nav bar, only avaible to the superuser, which takes them to a page form where they can add a new restuarant to the website for costomers to book.
-![forms](static/images/readmemd/superuseradd.png)
+-  The superuser (restaurant owner/manager) can add new retaurants to the database specifying restaurant detailsin the page that is link added to the nav bar, only avaible to the superuser, which takes them to a page form where they can add a new restuarant to the website for costomers to book.
+![admin](static/images/readmemd/superuseradd.png)
+![admin](static/images/readmemd/superuserdisp.png)
+
+- The admin can also access the conrol panel for where he/she can manage restaurants and bookings directly. All CRUD functions for the project can be accessed from here. 
+![admin](static/images/readmemd/adminpage1.png)
 
 ## Autherisation
 In order to access your bookings, text decorators have been used, so you have to be logged in. This can be seen in views.py. The booking view stops other users from being able to see your bookings by onoly showing the booking with the same user id as current user.
