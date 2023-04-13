@@ -17,8 +17,8 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
-import mimetypes
-mimetypes.add_type("text/css", ".css", True)
+# import mimetypes
+# mimetypes.add_type("text/css", ".css", True)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,11 +84,11 @@ TEMPLATES = [
     },
 ]
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dcoqehbji',
-    'API_KEY': '448937179916337',
-    'API_SECRET': 'HUBK-bZl2XgQljlB_KDJWr7igvM'
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'dcoqehbji',
+#     'API_KEY': '448937179916337',
+#     'API_SECRET': 'HUBK-bZl2XgQljlB_KDJWr7igvM'
+# }
 
 
 WSGI_APPLICATION = 'eateasy.wsgi.application'
@@ -146,9 +146,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 
 MEDIA_URL = '/media/'
 DEFULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
