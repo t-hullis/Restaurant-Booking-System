@@ -7,37 +7,52 @@ Bookingsys is a python django web app for making resservations at restaurants.
 ![this is an image to show resposiveness](static/images/iphonescreen.png)
 
 ## Abstract
-This project was designed to streamline the booking procces for a chain of restaurants. All a users bookings can be seen in one place, with the capablity to create read, edit and delete all the bookings. A user can only CRUD thier own bookings with no way of seeing other users bookings. The idea was to create a deliveroo style app but instead of making food orders, you simply can book seats.
-
+This project was designed to streamline the booking procces for a chain of restaurants. All a users bookings can be seen in one place, with the capablity to create, read, edit and delete all the bookings. A user can only CRUD thier own bookings with no way of seeing other users bookings. The idea was to create a deliveroo style app but instead of making food orders, you simply can book seats.
+ß
 ## User Stories
 
-| **User Story [#1](https://github.com/t-hullis/Restaurant-Booking-System/issues/1):** 
+**User Story [#3](https://github.com/t-hullis/Restaurant-Booking-System/issues/3):** 
 As a customer, I can add a booking for a meal in a specific restaurant at a specific date/time, for a specific number of people
 
  **User Story [#2](https://github.com/t-hullis/Restaurant-Booking-System/issues/2):** As a site user I can select the date, time, party size and allergies so that I can customize the booking to suit my needs
 
+ **User Story [#4](https://github.com/t-hullis/Restaurant-Booking-System/issues/4):** As a site user i can manage my booking so that reservations can be canceled, time/numbers can be changed
 
- **User Story 003:** 
- **User Story 004:** 
- **User Story 005:**
- **User Story 006:** 
- **User Story 007:** 
-| **User Story 008:** As a site user I want to be able to delete bookings I no longer need. | Ability to manage own bookings |
-| **User Story 009:** As a site user I want to be able to amend the timing of my booking. | Ability to manage own bookings |
-| **User Story 010:** As a site owner I want to be able to manage the escape room information to ensure it is up to date. | Attract potential customers |
-| **User Story 011:** As a site owner I want to be able to manage bookings for the escape room in order to plan for upcoming customers. | Manage customer bookings |
-| **User Story 012:** As a site owner I want to be able to manage and view contact requests so that relevant action can be taken. | Manage contact requests |
+ **User Story [#5](https://github.com/t-hullis/Restaurant-Booking-System/issues/5):** As a Site user i can add an account for the website so that booking process is streamlined and can identify users
+
+ **User Story [#6](https://github.com/t-hullis/Restaurant-Booking-System/issues/6):** As a restaurant owner/manager i can create a specific restaurant account so that my restaurant info can be displayed and integrated into the app, for users to use
+
+ **User Story [#8](https://github.com/t-hullis/Restaurant-Booking-System/issues/8):** As a site user i can view a page or card/widget about each restaurant so that users can get information like location, opening hours, dietary requirements, etc ..
+
+ **User Story [#10](https://github.com/t-hullis/Restaurant-Booking-System/issues/10):** As a user i can not double book a table in a restaurant so that i can be sure to get a table when i book one
+
+ **User Story [#11](https://github.com/t-hullis/Restaurant-Booking-System/issues/11):** As a user i can view all my bookings so that it is easy to view and manage my bookings
+
+
+
 # UX
 ## User
+- Nav Bar : The nav bar spans all of the pages of this website and allows you to got to the restaurant page and bookings page easily. It also has a button on right, which depending on the login status of the user, will change from login to logout.
+![homepage](static/images/readmemd/homepage.png)
 
-- Home page : The front end of this website is very simple. The user is met by the home page which tells them the purpose of the page direts them to the bookings page. The nav bar allows you to got to the restaurant page and bookings page. It also has a button in the top right corner, which depending on the login status of the user, will change from login to logout. Next to the button is one text which diplays the login status of the current user
-- Restaurant page : The user is met by cards diplaying the current restaurants opperation on the app. Link to Bookings page can be found. The cards diplay the name of the restaurant, a desription, as well was their opening times and closing times.
-- Bookings page :  This page has a similar set up to to the bookings page but it has the added functionality of the user being able to update and delete bookings which belong to them.
-- forms : for the forms i have used the cripsy forms library. this streamlined the form making prcess and added in error handling. 
+- Home page : The front end of this website is very simple. The text is ment to grab the users atention then move them straight through to the booking page with minimal distraction.  
+![homepage](static/images/readmemd/homepage.png)
+
+- Restaurant page : The user is met by cards diplaying the current restaurants you are able to book on the app. Links to Bookings page can be found. The cards diplay the name of the restaurant, a desription, as well was their opening times and closing times.
+![restaurant](static/images/readmemd/restaurantpage.png)
+
+- Bookings page :  This page has a similar set up to to the restaurants page but it has the added functionality of the user being able to update/edit and delete bookings which belong to them.
+![booking](static/images/readmemd/bookingpage.png)
+
+- Forms : For the forms i have used the cripsy forms library. This streamlined the form making process and added in error handling. 
+![forms](static/images/readmemd/createaccountform.png)
+![forms](static/images/readmemd/loginform.png)
+![forms](static/images/readmemd/editbookingform.png)
 
 ## Admin
 
-- In admin, the superuser (restaurant owner/manager) can add new retaurants to the database specifying restaurant details.
+- In admin, the superuser (restaurant owner/manager) can add new retaurants to the database specifying restaurant details. There has also been a link added to the nav bar, only avaible to the superuser, which takes them to a page form where they can add a new restuarant to the website for costomers to book.
+![forms](static/images/readmemd/superuseradd.png)
 
 ## Autherisation
 In order to access your bookings, text decorators have been used, so you have to be logged in. This can be seen in views.py. The booking view stops other users from being able to see your bookings by onoly showing the booking with the same user id as current user.
