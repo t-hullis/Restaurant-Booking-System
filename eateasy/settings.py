@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['p-4-booking-system.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['p4-restaurant-booking-sys.herokuapp.com', 'localhost']
 
 
 # Application definition
