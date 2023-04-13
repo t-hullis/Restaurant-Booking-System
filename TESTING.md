@@ -4,7 +4,7 @@
 ## User Stories
 
 **User Story [#3](https://github.com/t-hullis/Restaurant-Booking-System/issues/3):** 
-As a customer, I can add a booking for a meal in a specific restaurant at a specific date/time, for a specific number of people
+As a customer, I can add a booking for a meal in a specific restaurant at a specific date and time, for a specific number of people
 ![Step 1](static/images/testmd/userstr3a.png)
 ![Step 2](static/images/testmd/userstr3b.png)
 ![Step 3](static/images/testmd/userstr3c.png)
