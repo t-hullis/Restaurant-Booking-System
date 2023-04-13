@@ -4,7 +4,7 @@
 /* Background image */
 #background-home {
 
-    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('/static/images/homepage.jpg');
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://res.cloudinary.com/dcoqehbji/image/upload/v1681401191/static/images/homepage.e239a28d30e6.jpg');
     background-repeat:no-repeat;
     background-color: black;  
     background-size: 100%;
