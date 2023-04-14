@@ -71,7 +71,7 @@ As a customer, I can add a booking for a meal in a specific restaurant at a spec
 In order to access your bookings, text decorators have been used, so you have to be logged in. This can be seen in views.py. The booking view stops other users from being able to see your bookings by onoly showing the booking with the same user id as current user.
 
 ## Databases
-![this is an image of the models code](static/images/databaseimage.png)
+![this is an image of the models code](static/images/model.png)
 
 All my databases have been created using django and postgres. 
 
