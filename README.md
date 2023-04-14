@@ -86,6 +86,8 @@ All my databases have been created using django and postgres.
 
 - testing has been done to make sure correct form secontions are running in form
 
+- documentaion can be found in testing.md
+
 # Deployment
 
 
@@ -171,6 +173,5 @@ This project has been deoplyed on heroku.
 # Bugs
 - The form to update a booking wouldnt pre load exsiting data into it. this was solved by adding an edit view into views.py and taking instance data.
 - Current bug where heroku wont load my style sheet. I spent over 8 hours with the tutor trying to fix it but they were unable to help, so if you want to see my project properly please run on live server.
-
-- 
+- There was a bug where anyone could edit anyone elses bookings, this was fixed by in views by adding a check to see which user is trying to change their booking before they can
 
