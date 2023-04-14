@@ -41,9 +41,9 @@
               <li class="nav-item collapse navbar-collapse"></li>
               {% if user.is_authenticated %}
               <span class="navbar-text" id="disp-usr">Logged in as {{user.username}} </span> 
-              <li class="btn" id="lgn-btn"  href="/logout/">Logout</li>
+              <a class="btn" id="lgn-btn"  href="/logout/">Logout</a>
               {% else %}
-              <li class="btn" id="lgn-btn"  href="{%url 'login' %}">Login</li>
+              <a class="btn" id="lgn-btn"  href="{%url 'login' %}">Login</a>
               {% endif %}                
             </ul>
           </div>
