@@ -84,11 +84,11 @@ TEMPLATES = [
     },
 ]
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': 'dcoqehbji',
-#     'API_KEY': '448937179916337',
-#     'API_SECRET': 'HUBK-bZl2XgQljlB_KDJWr7igvM'
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dcoqehbji',
+    'API_KEY': '448937179916337',
+    'API_SECRET': 'HUBK-bZl2XgQljlB_KDJWr7igvM'
+}
 
 
 WSGI_APPLICATION = 'eateasy.wsgi.application'
