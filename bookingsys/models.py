@@ -1,6 +1,8 @@
 from django.db import models
-<<<<<<< HEAD
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+
+
 
 # Create your models here.
 class NewUser:
@@ -9,15 +11,6 @@ class NewUser:
     first_name = models.CharField(max_length=120)
     last_name = models.CharField(max_length=120)
     
-
-
-# class Booking(models.Model):
-#     user_id = models.AutoField(primary_key=True)
-#     # time = models.DateTimeField()
-
-=======
-from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import User
 
 
 time_choices = (
@@ -67,8 +60,3 @@ class Booking(models.Model):
 
     def __str__(self):
         return f'Booking for {self.party_size} at {self.restaurant} on {self.date}'
-
-
-
-
->>>>>>> 6614ce187bba45ffdcc10a4bd3d0119307221ba0
