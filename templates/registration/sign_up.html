@@ -1,0 +1,11 @@
+{% extends 'bookingsys/base.html' %} {% block title %}Sign-Up{% endblock %} 
+
+{% load crispy_forms_tags %} {% block content %}
+<div class="d-flex justify-content-center align-items-center mt-5 my-form">
+  <form method="post" class="text-center col-md-6 ">
+    {% csrf_token %}{{form|crispy}}
+    <p>Have an account? Login <a href="/login">Here</a>!</p>
+   <button type="submit" class="btn btn-success">Register</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'bookingsys/base.html' %} {% block title %} Make a Booking {% endblock %} 
+{% load crispy_forms_tags %} {% block content %}
+<form method="post" class="text-cente my-form">
+  {% csrf_token %}{{form|crispy}}
+  <button type="submit" class="btn btn-success">Book</button>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "bookingsys/base.html" %}
+
+{% block content %}
+<div class="text-center">
+<h1>Need a table?</h1>
+<a href="/make-booking">Book here!</a>
+
+</div>
+<div class="container text-center" style="height: 70vh; ">
+  <h2>Your Bookings</h2>
+    <div class="row justify-content-between justify-content-around">
+      {% for booking in bookings %}
+      <div class="card cards d-flex justify-content-center p-3 text-center" id="card" >
+        <h2 class="card-header"><strong><u>{{ booking.restaurant.name }}</u></strong></h2>
+        <div class="card-body d-flex flex-row justify-content-between">
+          <div class="text-center">
+            <h4 class="card-title"> {{ booking.date}}</h4>
+            <h4 class="card-title"> {{ booking.start_time}}</h4>
+            <h5 class="card-title"> {{ booking.party_size}}</h5>
+          </div>
+          
+        </div>
+        <form method="POST">
+          {% csrf_token %}
+          <a class="btn btn-info" href="{% url 'edit_booking' booking.id %}">Edit</a>
+          <button type="submit" class="btn btn-danger" name="booking-id" value="{{booking.id}}">Delete</button>
+        </form>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{%endblock%}

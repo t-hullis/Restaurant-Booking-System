@@ -131,6 +131,7 @@ Cloning your repository will allow you to download a local version of the reposi
 I followed the below steps using the Code Institute tutorial and [Django Blog cheatsheat](https://codeinstitute.s3.amazonaws.com/fst/Django%20Blog%20Cheat%20Sheet%20v1.pdf)
 
 - The following command in the Gitpod CLI will create the relevant files needed for Heroku to install your project dependencies `pip3 freeze --local > requirements.txt`. Please note this file should be added to a .gitignore file to prevent the file from being committed. A `Procfile` is also required that specifies the commands that are executed by the app on startup. 
+<<<<<<< HEAD
 
 1. Go to [Heroku.com](https://dashboard.heroku.com/apps) and log in; if you do not already have an account then you will need to create one.
 2. Click the `New` dropdown and select `Create New App`.
@@ -174,3 +175,49 @@ This project has been deoplyed on heroku.
 - The form to update a booking wouldnt pre load exsiting data into it. this was solved by adding an edit view into views.py and taking instance data.
 - Current bug where heroku wont load my style sheet. I spent over 8 hours with the tutor trying to fix it but they were unable to help, so if you want to see my project properly please run on live server.
 - There was a bug where anyone could edit anyone elses bookings, this was fixed by in views by adding a check to see which user is trying to change their booking before they can
+=======
+
+1. Go to [Heroku.com](https://dashboard.heroku.com/apps) and log in; if you do not already have an account then you will need to create one.
+2. Click the `New` dropdown and select `Create New App`.
+3. Enter a name for your new project, all Heroku apps need to have a unique name, you will be prompted if you need to change it.
+4. Select the region you are working in.
+
+*Heroku Settings*
+You will need to set your Environment Variables - this is a key step to ensuring your application is deployed properly.
+- In the Settings tab, click on `Reveal Config Vars` and set the following variables:
+    - SECRET_KEY - to be set to your chosen key
+    - CLOUDINARY_URL - to be set to your Cloudinary API environment variable
+- In the resources tab you must install 'Heroku Postgres'
+
+*Heroku Deployment*
+In the Deploy tab:
+1. Connect your Heroku account to your Github Repository following these steps:
+    1. Click on the `Deploy` tab and choose `Github-Connect to Github`.
+    2. Enter the GitHub repository name and click on `Search`.
+    3. Choose the correct repository for your application and click on `Connect`.
+2. You can then choose to deploy the project manually or automatically, automatic deployment will generate a new application every time you push a change to Github, whereas manual deployment requires you to push the `Deploy Branch` button whenever you want a change made.
+3. Once you have chosen your deployment method and have clicked `Deploy Branch` your application will be built and you should see the below `View` button, click this to open your application:
+
+## Technologies Used
+ 
+This project has been deoplyed on heroku.
+
+- [Django](https://www.djangoproject.com/)
+    -  Framework used to build the project.
+- [Python](https://www.python.org/)
+- [Bootstrap](https://getbootstrap.com/)
+    - Makes mobile first responsive design.
+- [GitHub](https://github.com/)
+    - Holds and stores project.
+- [Gitpod](https://www.gitpod.io/)
+    - Development environment.
+- [Heroku](https://dashboard.heroku.com/apps)
+    - App deployed here.
+- Crispy forms
+
+# Bugs
+- The form to update a booking wouldnt pre load exsiting data into it. this was solved by adding an edit view into views.py and taking instance data.
+- Current bug where heroku wont load my style sheet. I spent over 8 hours with the tutor trying to fix it but they were unable to help, so if you want to see my project properly please run on live server.
+- There was a bug where anyone could edit anyone elses bookings, this was fixed by in views by adding a check to see which user is trying to change their booking before they can
+
+>>>>>>> 6614ce187bba45ffdcc10a4bd3d0119307221ba0

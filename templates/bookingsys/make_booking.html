@@ -1,0 +1,9 @@
+{% extends 'bookingsys/base.html' %} {% block title %} Make a Booking {% endblock %} 
+{% load crispy_forms_tags %} {% block content %}
+<form method="post" class="text-center my-form">
+  {% csrf_token %}{{form|crispy}}
+  <button type="submit" class="btn btn-success">Book</button>
+  <button class="btn btn-secondary btn-danger" type="button" onclick="window.history.back();">Cancel</button>
+
+</form>
+{% endblock %}

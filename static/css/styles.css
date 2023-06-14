@@ -1,4 +1,69 @@
-.container {
-    height: 400px;
-    background-color: yellowgreen;
+:root {
+    --font-size: 14px;
+  }
+/* Background image */
+#background-home {
+
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('https://res.cloudinary.com/dcoqehbji/image/upload/v1681401191/static/images/homepage.e239a28d30e6.jpg');
+    background-repeat:no-repeat;
+    background-color: black;  
+    background-size: 100%;
+    min-height: 100vh;
+    background-position: center top;
+     /* Optional: Set background color */
+    background-color: black;
+      }
+/* limit form width */
+.my-form {
+    max-width: 45%;
+    margin: auto;
+    }
+/* Cards for bookings and restaurants */
+.cards { 
+    font-size: var(--font-size);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
 }
+#card {
+  width:25vw ;
+}
+ 
+.card-header {
+    font-size: 30px;
+}
+.card-body {
+    font-size: 16px;
+}
+.card-title {
+    font-size: 18px;
+}
+/* Media query for screens smaller than 768px */
+@media (max-width: 767px) {
+    #card {
+      font-size: 14px;
+      width: 55vw ;
+    }
+  }
+  
+  /* Media query for screens smaller than 480px */
+  @media (max-width: 479px) {
+    #card {
+      font-size: 12px;
+      width: 55vw ;
+    }
+
+  }
+
+#lgn-btn {
+    width: 30px;
+    margin-right: 30px;
+}
+
+#disp-usr {
+    color: rgba(255, 255, 255, 0.3);
+
+}
+
+
