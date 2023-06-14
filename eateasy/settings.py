@@ -32,8 +32,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['p4-restaurant-booking-sys.herokuapp.com', 'localhost']
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
